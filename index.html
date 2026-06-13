@@ -3,8 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pyrōva Robotics — The Future Walks Into Your Space</title>
-    <meta name="description" content="India's premier social robotics startup building custom bots for cafes, stores, and experience spaces." />
+    <title>Pyrōva Robotics — Custom Social Robots for Cafes, Stores &amp; Venues</title>
+    <meta name="description" content="India's premier social robotics startup building custom bots for themed cafes, retail stores, showrooms, and experience spaces." />
+    <meta name="keywords" content="Pyrōva Robotics, social robotics startup India, custom robots cafes, commercial robots retail, event robots, themed cafe robot, customized humanoid robots, robotics company India, Metla Vishnu Vardhan" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Metla Vishnu Vardhan" />
+    <meta name="theme-color" content="#FF4500" />
+    <link rel="canonical" href="https://pyrovarobotics.space/" />
+
+    <!-- Open Graph / Facebook / LinkedIn / Discord -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Pyrōva Robotics — Custom Social Robots for Commercial Spaces" />
+    <meta property="og:description" content="India's social robotics pioneer. We design and build bespoke robots for cafes, retail stores, showrooms, and experience spaces." />
+    <meta property="og:image" content="https://pyrovarobotics.space/assets/logo.png" />
+    <meta property="og:url" content="https://pyrovarobotics.space/" />
+    <meta property="og:site_name" content="Pyrōva Robotics" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pyrōva Robotics — Custom Social Robots for Commercial Spaces" />
+    <meta name="twitter:description" content="India's premier social robotics startup. Bespoke robots for cafes, retail, and experience spaces." />
+    <meta name="twitter:image" content="https://pyrovarobotics.space/assets/logo.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -15,6 +35,8 @@
     <link rel="stylesheet" href="css/sections.css" />
     <link rel="stylesheet" href="css/contact.css" />
     <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/configurator.css" />
+    <link rel="stylesheet" href="css/chatbot.css" />
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -48,6 +70,7 @@
         <ul class="nav-links" id="navLinks">
           <li><a href="#about">About</a></li>
           <li><a href="#what-we-do">What We Do</a></li>
+          <li><a href="#meet-our-bots">Meet Our Bots</a></li>
           <li><a href="#why-pyrova">Why Pyrōva</a></li>
           <li><a href="#how-it-works">How It Works</a></li>
           <li><a href="#clients">Clients</a></li>
@@ -178,6 +201,146 @@
             <p>High-impact robots for launches, pop-ups, expos, and brand events. Crowd-stopping presence with interactive engagement.</p>
           </div>
         </div>
+
+        <!-- ROBOT CONFIGURATOR -->
+        <div class="configurator-container animate-on-scroll" id="configurator">
+          <div class="configurator-header">
+            <h3>🤖 Customize Your Pyrōva Bot</h3>
+            <p>Configure your robot's role, personality, and abilities to preview its specs and get a project estimate.</p>
+          </div>
+          <div class="configurator-grid">
+            <!-- Options Pane -->
+            <div class="config-options">
+              <!-- Models -->
+              <div class="config-group">
+                <span class="group-title">1. Choose Bot Role</span>
+                <div class="options-row" id="modelOpts">
+                  <button type="button" class="opt-btn active" data-model="barista">
+                    <span class="opt-icon">☕</span>
+                    <span class="opt-label">Cafe Barista</span>
+                  </button>
+                  <button type="button" class="opt-btn" data-model="guide">
+                    <span class="opt-icon">📖</span>
+                    <span class="opt-label">Store Lore Guide</span>
+                  </button>
+                  <button type="button" class="opt-btn" data-model="host">
+                    <span class="opt-icon">🏢</span>
+                    <span class="opt-label">Host Concierge</span>
+                  </button>
+                </div>
+              </div>
+              <!-- Personalities -->
+              <div class="config-group">
+                <span class="group-title">2. Define Personality</span>
+                <div class="options-row" id="personalityOpts">
+                  <button type="button" class="opt-btn active" data-personality="cute">
+                    <span class="opt-icon">✨</span>
+                    <span class="opt-label">Cute &amp; Polite</span>
+                  </button>
+                  <button type="button" class="opt-btn" data-personality="cyberpunk">
+                    <span class="opt-icon">🎮</span>
+                    <span class="opt-label">Cyberpunk/Gamer</span>
+                  </button>
+                  <button type="button" class="opt-btn" data-personality="professional">
+                    <span class="opt-icon">👔</span>
+                    <span class="opt-label">Sleek Professional</span>
+                  </button>
+                </div>
+              </div>
+              <!-- Abilities -->
+              <div class="config-group">
+                <span class="group-title">3. Select Capabilities</span>
+                <div class="abilities-grid" id="abilityOpts">
+                  <div class="ability-card" data-ability="navigation">
+                    <input type="checkbox" id="ability-nav" />
+                    <label for="ability-nav">
+                      <span class="ability-title">🗺️ Autonomous Navigation</span>
+                      <span class="ability-desc">Patrols and navigates space autonomously</span>
+                    </label>
+                  </div>
+                  <div class="ability-card" data-ability="face">
+                    <input type="checkbox" id="ability-face" />
+                    <label for="ability-face">
+                      <span class="ability-title">📺 Expressive Face Screen</span>
+                      <span class="ability-desc">Visual eye expressions and screen UI</span>
+                    </label>
+                  </div>
+                  <div class="ability-card" data-ability="voice">
+                    <input type="checkbox" id="ability-voice" />
+                    <label for="ability-voice">
+                      <span class="ability-title">🎙️ Voice Conversation</span>
+                      <span class="ability-desc">Interactive local AI speech capability</span>
+                    </label>
+                  </div>
+                  <div class="ability-card" data-ability="delivery">
+                    <input type="checkbox" id="ability-delivery" />
+                    <label for="ability-delivery">
+                      <span class="ability-title">🍱 Delivery Tray / Arms</span>
+                      <span class="ability-desc">Physical delivery of items and flyers</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Preview Pane -->
+            <div class="config-preview">
+              <div class="preview-card-inner">
+                <div class="preview-visual">
+                  <div class="bot-hologram">
+                    <div class="hologram-glow"></div>
+                    <div class="hologram-icon" id="hologramIcon">☕</div>
+                    <div class="hologram-scanline"></div>
+                  </div>
+                  <div class="preview-name" id="previewName">Cafe Barista Bot</div>
+                </div>
+                <div class="preview-stats">
+                  <div class="stat-bar-group">
+                    <div class="stat-bar-label">
+                      <span>Artificial Intelligence</span>
+                      <span class="stat-val" id="stat-iq">3/5</span>
+                    </div>
+                    <div class="stat-bar-outer"><div class="stat-bar-inner" id="bar-iq" style="width: 60%"></div></div>
+                  </div>
+                  <div class="stat-bar-group">
+                    <div class="stat-bar-label">
+                      <span>Expressiveness &amp; Faces</span>
+                      <span class="stat-val" id="stat-exp">2/5</span>
+                    </div>
+                    <div class="stat-bar-outer"><div class="stat-bar-inner" id="bar-exp" style="width: 40%"></div></div>
+                  </div>
+                  <div class="stat-bar-group">
+                    <div class="stat-bar-label">
+                      <span>Mobility / Navigation</span>
+                      <span class="stat-val" id="stat-mob">3/5</span>
+                    </div>
+                    <div class="stat-bar-outer"><div class="stat-bar-inner" id="bar-mob" style="width: 60%"></div></div>
+                  </div>
+                  <div class="stat-bar-group">
+                    <div class="stat-bar-label">
+                      <span>Payload Delivery Capacity</span>
+                      <span class="stat-val" id="stat-pay">4/5</span>
+                    </div>
+                    <div class="stat-bar-outer"><div class="stat-bar-inner" id="bar-pay" style="width: 80%"></div></div>
+                  </div>
+                </div>
+                <div class="preview-estimates">
+                  <div class="estimate-item">
+                    <span class="est-label">Estimated Timeline</span>
+                    <span class="est-value" id="est-time">6 Weeks</span>
+                  </div>
+                  <div class="estimate-item">
+                    <span class="est-label">Build Complexity</span>
+                    <span class="est-value badge" id="est-complexity">Standard</span>
+                  </div>
+                </div>
+                <button type="button" class="btn-primary btn-config-submit" id="btnConfigSubmit">
+                  Send Config to Inquiry Form
+                </button>
+                <div class="config-toast" id="configToast">Config copied to Contact Form below!</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -239,6 +402,59 @@
               <h3>Deliver &amp; Deploy</h3>
               <p>We deliver, install, and train your team. Your robot is live, engaged, and turning heads from day one.</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEET OUR BOTS CHAT SIMULATOR -->
+    <section class="section simulator-section" id="meet-our-bots">
+      <div class="container">
+        <div class="section-tag animate-on-scroll">Personality Demo</div>
+        <h2 class="section-heading animate-on-scroll">Meet Our Bots<br /><span class="accent-text">Live Simulator</span></h2>
+        
+        <div class="chat-simulator-container animate-on-scroll">
+          <!-- Chat Tabs -->
+          <div class="chat-tabs">
+            <button type="button" class="chat-tab active" data-char="nova">
+              <span class="tab-avatar">☕</span>
+              <div class="tab-info">
+                <span>Nova</span>
+                <span class="tab-role">Barista Bot</span>
+              </div>
+            </button>
+            <button type="button" class="chat-tab" data-char="kaelen">
+              <span class="tab-avatar">📖</span>
+              <div class="tab-info">
+                <span>Kaelen</span>
+                <span class="tab-role">Lorekeeper</span>
+              </div>
+            </button>
+            <button type="button" class="chat-tab" data-char="aero">
+              <span class="tab-avatar">🏢</span>
+              <div class="tab-info">
+                <span>Aero</span>
+                <span class="tab-role">Concierge</span>
+              </div>
+            </button>
+          </div>
+          
+          <!-- Chat Feed -->
+          <div class="chat-messages" id="chatMessages">
+            <!-- Dynamic chat history -->
+          </div>
+          
+          <!-- Quick Prompts Menu -->
+          <div class="quick-prompts-container" id="quickPrompts">
+            <!-- Dynamic buttons go here -->
+          </div>
+          
+          <!-- Chat Input -->
+          <div class="chat-input-area">
+            <form class="chat-input-form" id="chatForm">
+              <input type="text" id="chatInput" class="chat-text-input" placeholder="Ask Nova anything..." autocomplete="off" aria-label="Simulator message input" />
+              <button type="submit" class="chat-send-btn">Send</button>
+            </form>
           </div>
         </div>
       </div>
@@ -391,6 +607,8 @@
 
     <script type="module" src="js/theme.js"></script>
     <script type="module" src="js/animations.js"></script>
+    <script type="module" src="js/configurator.js"></script>
+    <script type="module" src="js/chatbot.js"></script>
     <script type="module" src="js/form.js"></script>
   </body>
 </html>

@@ -1,5 +1,12 @@
-const SUPABASE_URL = 'https://0ec90b57d6e95fcbda19832f.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJib2x0IiwicmVmIjoiMGVjOTBiNTdkNmU5NWZjYmRhMTk4MzJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg4ODE1NzQsImV4cCI6MTc1ODg4MTU3NH0.9I8-U0x86Ak8t2DGaIk0HfvTSLsAyzdnz-Nw00mMkKw';
+// Expose function globally to let the configurator send text to the message field
+window.populateInquiryForm = function(text) {
+  const messageEl = document.getElementById('message');
+  if (messageEl) {
+    messageEl.value = text;
+    // Dispatch input event to clear validation errors
+    messageEl.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+};
 
 const form = document.getElementById('contactForm');
 const submitBtn = document.getElementById('submitBtn');
@@ -56,14 +63,13 @@ function validate() {
   return valid;
 }
 
-async function submitToSupabase(data) {
-  const response = await fetch(`${SUPABASE_URL}/rest/v1/contact_submissions`, {
+async function submitToEmail(data) {
+  // Use FormSubmit.co AJAX API endpoint to send submissions directly to the business email
+  const response = await fetch('https://formsubmit.co/ajax/pyrovarobotics@gmail.com', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'apikey': SUPABASE_ANON_KEY,
-      'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-      'Prefer': 'return=minimal',
+      'Accept': 'application/json'
     },
     body: JSON.stringify(data),
   });
@@ -100,15 +106,19 @@ if (form) {
 
     setLoading(true);
 
+    // FormSubmit accepts standard key-value inputs and titles them in the email.
+    // We name the fields cleanly for the resulting email notification.
     const payload = {
-      name: getField('name').value.trim(),
-      business_name: getField('businessName').value.trim(),
-      space_type: getField('spaceType').value,
-      message: getField('message').value.trim(),
+      'Name': getField('name').value.trim(),
+      'Business Name': getField('businessName').value.trim(),
+      'Space Type': getField('spaceType').value.toUpperCase(),
+      'Message / Vision Details': getField('message').value.trim(),
+      '_subject': `New Custom Bot Inquiry from ${getField('businessName').value.trim()}`,
+      '_honey': '', // honeypot spam protection field
     };
 
     try {
-      await submitToSupabase(payload);
+      await submitToEmail(payload);
       form.reset();
       formSuccess.style.display = '';
       submitBtn.style.display = 'none';
