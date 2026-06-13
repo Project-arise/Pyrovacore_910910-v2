@@ -1,0 +1,65 @@
+/* === THEME VARIABLES === */
+
+[data-theme="dark"] {
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #111111;
+  --bg-card: #141414;
+  --bg-card-hover: #1A1A1A;
+  --bg-input: #0F0F0F;
+  --text-primary: #FFFFFF;
+  --text-secondary: #C0C0C0;
+  --text-muted: #666666;
+  --accent: #FF4500;
+  --accent-glow: rgba(255, 69, 0, 0.35);
+  --accent-glow-subtle: rgba(255, 69, 0, 0.12);
+  --secondary: #C0C0C0;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-accent: rgba(255, 69, 0, 0.4);
+  --nav-bg: rgba(10, 10, 10, 0.92);
+  --nav-scrolled: rgba(10, 10, 10, 0.98);
+  --gradient-hero: radial-gradient(ellipse at 60% 50%, rgba(255,69,0,0.08) 0%, transparent 60%),
+                   radial-gradient(ellipse at 10% 80%, rgba(255,69,0,0.05) 0%, transparent 50%);
+  --grid-color: rgba(255, 255, 255, 0.03);
+  --step-connector: rgba(255, 69, 0, 0.3);
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.4);
+  --shadow-card-hover: 0 8px 40px rgba(255,69,0,0.2);
+  --hero-text-shadow: 0 0 40px rgba(255,69,0,0.3);
+}
+
+[data-theme="light"] {
+  --bg-primary: #F0F0F0;
+  --bg-secondary: #E8E8E8;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F8F8F8;
+  --bg-input: #FFFFFF;
+  --text-primary: #111111;
+  --text-secondary: #333333;
+  --text-muted: #888888;
+  --accent: #FF4500;
+  --accent-glow: rgba(255, 69, 0, 0.25);
+  --accent-glow-subtle: rgba(255, 69, 0, 0.08);
+  --secondary: #555555;
+  --border: rgba(0, 0, 0, 0.12);
+  --border-accent: rgba(255, 69, 0, 0.35);
+  --nav-bg: rgba(240, 240, 240, 0.92);
+  --nav-scrolled: rgba(240, 240, 240, 0.98);
+  --gradient-hero: radial-gradient(ellipse at 60% 50%, rgba(255,69,0,0.06) 0%, transparent 60%),
+                   radial-gradient(ellipse at 10% 80%, rgba(255,69,0,0.04) 0%, transparent 50%);
+  --grid-color: rgba(0, 0, 0, 0.04);
+  --step-connector: rgba(255, 69, 0, 0.25);
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.1);
+  --shadow-card-hover: 0 8px 40px rgba(255,69,0,0.15);
+  --hero-text-shadow: 0 0 40px rgba(255,69,0,0.15);
+}
+
+/* Theme transition */
+*, *::before, *::after {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Exclude transitions on elements where they shouldn't apply */
+.btn-primary, .btn-ghost, .service-card, .feature-item, .client-card, .social-link,
+.nav-cta, .theme-toggle, .hamburger span {
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease,
+              box-shadow 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
+}
