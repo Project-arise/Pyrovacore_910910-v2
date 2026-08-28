@@ -24,7 +24,7 @@ function setError(fieldId, message) {
 }
 
 function clearErrors() {
-  ['name', 'businessName', 'spaceType', 'message'].forEach(id => setError(id, ''));
+  ['name', 'email', 'businessName', 'spaceType', 'message'].forEach(id => setError(id, ''));
 }
 
 function validate() {
@@ -36,6 +36,15 @@ function validate() {
     valid = false;
   } else if (name.length < 2) {
     setError('name', 'Name must be at least 2 characters.');
+    valid = false;
+  }
+
+  const email = getField('email').value.trim();
+  if (!email) {
+    setError('email', 'Please enter your email address.');
+    valid = false;
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    setError('email', 'Please enter a valid email address.');
     valid = false;
   }
 
@@ -90,7 +99,7 @@ function setLoading(loading) {
 
 if (form) {
   // Clear individual field errors on input
-  ['name', 'businessName', 'spaceType', 'message'].forEach(id => {
+  ['name', 'email', 'businessName', 'spaceType', 'message'].forEach(id => {
     const el = getField(id);
     if (el) {
       el.addEventListener('input', () => setError(id, ''));
@@ -110,6 +119,7 @@ if (form) {
     // We name the fields cleanly for the resulting email notification.
     const payload = {
       'Name': getField('name').value.trim(),
+      'email': getField('email').value.trim(),
       'Business Name': getField('businessName').value.trim(),
       'Space Type': getField('spaceType').value.toUpperCase(),
       'Message / Vision Details': getField('message').value.trim(),
